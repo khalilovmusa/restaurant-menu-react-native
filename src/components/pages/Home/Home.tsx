@@ -65,8 +65,8 @@ const Home: React.FC<HomeScreenProps> = ({ navigation }) => {
         <Text style={styles.title}>
           What's on your <Text style={styles.highlight}>mind?</Text>
         </Text>
-        <TouchableOpacity 
-          onPress={() => navigation.navigate('GetStarted')} 
+        <TouchableOpacity
+          onPress={() => navigation.navigate('GetStarted')}
           style={styles.iconButton}
         >
           <Image source={require('../../../assets/HomeIcon.jpg')} style={styles.icon} />
@@ -75,10 +75,10 @@ const Home: React.FC<HomeScreenProps> = ({ navigation }) => {
 
       <ScrollView contentContainerStyle={styles.grid}>
         {foodItems.map((item, index) => (
-          <View key={index} style={styles.gridItem}>
-            <Image source={item.image} style={styles.image} />
-            <Text style={styles.itemText}>{item.title}</Text>
-          </View>
+          <TouchableOpacity onPress={() => navigation.navigate("Cart")} key={index} style={styles.gridItem}>
+              <Image source={item.image} style={styles.image} />
+              <Text style={styles.itemText}>{item.title}</Text>
+          </TouchableOpacity>
         ))}
       </ScrollView>
     </View>
@@ -123,13 +123,13 @@ const styles = StyleSheet.create({
   gridItem: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: '45%',
+    width: '50%',
     marginVertical: 10,
   },
   image: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
+    width: 100,
+    height: 100,
+    borderRadius: 50,
   },
   itemText: {
     marginTop: 8,
